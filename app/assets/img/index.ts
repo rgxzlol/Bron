@@ -1,0 +1,8 @@
+export {default as chemodan} from "./chemodan.png"
+export {default as education} from "./education.png"
+export {default as food} from "./food.png"
+export {default as games} from "./games.png"
+export {default as gantel} from "./gantel.png"
+export {default as med_kit} from "./med-kit.png"
+export {default as salon} from "./salon.png"
+export {default as tire} from "./tire.png"
