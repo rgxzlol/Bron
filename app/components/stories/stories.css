@@ -1,0 +1,88 @@
+.stories {
+  width: 100%;
+}
+
+.stories__title {
+  margin: 0 0 13px;
+  font-family: var(--font-inter-family), sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 43px;
+}
+
+.stories__list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 0 2px 6px;
+  scrollbar-width: none;
+}
+
+.stories__list::-webkit-scrollbar {
+  display: none;
+}
+
+.stories__card {
+  position: relative;
+  width: min(274px, 75vw);
+  aspect-ratio: 273.63 / 317.64;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: 39px;
+  background: #222;
+}
+
+.stories__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stories__border {
+  position: absolute;
+  inset: 5.7px;
+  border: 2px solid #fff;
+  border-radius: 35px;
+  pointer-events: none;
+}
+
+.stories__caption {
+  position: absolute;
+  right: 12px;
+  bottom: 16px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.stories__name {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.stories__separator {
+  width: 2px;
+  height: 2px;
+}
+
+.stories__rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-inter-family), sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.stories__rating img {
+  width: 12px;
+  height: 12px;
+}
