@@ -1,6 +1,7 @@
 import Image, { type StaticImageData } from "next/image";
 import { chemodan, education, food, games, gantel, med_kit, salon, tire } from "@/app/assets/img";
 import "./categories.css";
+import { find, settings } from "@/app/assets/svg";
 
 const categories: { title: string; image: StaticImageData }[] = [
   { title: "Рестораны", image: food },
@@ -43,6 +44,17 @@ export default function Categories() {
             <span className="categories__view-all-arrow" aria-hidden="true" />
           </button>
         </div>
+      </div>
+      <div className="categories__search" role="search">
+        <Image className="categories__search-icon" src={find} alt="" aria-hidden="true" />
+        <input
+          className="categories__input"
+          type="search"
+          name="q"
+          placeholder="Ищите интересные места и сервисы"
+          aria-label="Поиск интересных мест и сервисов"
+        />
+        <Image className="categories__filter-icon" src={settings} alt="" aria-hidden="true" />
       </div>
     </section>
   );

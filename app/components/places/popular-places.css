@@ -1,0 +1,224 @@
+.popular-places {
+  width: 100%;
+  margin: 36px 0 48px;
+}
+
+.popular-places__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.popular-places__title {
+  margin: 0;
+  font-family: var(--font-inter-family), sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.popular-places__view-all {
+  display: flex;
+  min-width: 194px;
+  height: 39px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 14px;
+  background: #f4f5f7;
+  font-family: var(--font-inter-family), sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.popular-places__view-all img {
+  flex: 0 0 16px;
+}
+
+.popular-places__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.popular-places__card {
+  min-width: 0;
+  height: 383px;
+  padding: 15px;
+  overflow: hidden;
+  border-radius: 45px;
+  background: #f4f5f7;
+  font-family: var(--font-inter-family), sans-serif;
+}
+
+.popular-places__photo {
+  position: relative;
+  height: 178px;
+  overflow: hidden;
+  border-radius: 36px;
+}
+
+.popular-places__image {
+  object-fit: cover;
+  object-position: center 66%;
+}
+
+.popular-places__favorite {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  width: 49px;
+  height: 44px;
+  place-items: center;
+  border-radius: 15px;
+  background: #f4f5f7;
+}
+
+.popular-places__details {
+  position: relative;
+  padding-top: 10px;
+}
+
+.popular-places__name-row {
+  display: flex;
+  min-height: 27px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.popular-places__name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.popular-places__price {
+  flex: 0 0 auto;
+  padding: 7px 12px;
+  border-radius: 10px;
+  background: rgb(0 0 0 / 3%);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 13px;
+}
+
+.popular-places__category {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+  color: rgb(0 0 0 / 50%);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.popular-places__category img {
+  flex: 0 0 4px;
+}
+
+.popular-places__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 7px;
+}
+
+.popular-places__rating {
+  display: flex;
+  height: 27px;
+  min-width: 58px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 11px;
+  background: #00bd08;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.popular-places__meta-item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.popular-places__meta-item img {
+  flex: 0 0 auto;
+}
+
+.popular-places__book {
+  width: 100%;
+  height: 64px;
+  margin-top: 15px;
+  border-radius: 26px;
+  background: #0a6af7;
+  color: #fff;
+  font-family: var(--font-inter-family), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+  .popular-places__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .popular-places {
+    margin-top: 28px;
+  }
+
+  .popular-places__header {
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .popular-places__title {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  .popular-places__view-all {
+    min-width: 0;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .popular-places__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .popular-places__card {
+    width: 100%;
+    max-width: 512px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 390px) {
+  .popular-places__meta {
+    gap: 7px;
+  }
+
+  .popular-places__meta-item {
+    gap: 2px;
+    font-size: 14px;
+  }
+
+  .popular-places__price {
+    padding: 6px 8px;
+    font-size: 9px;
+  }
+}
