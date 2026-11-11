@@ -1,0 +1,129 @@
+.favorites-page {
+  width: calc(100% + 30px);
+  margin: 14px 0 48px -15px;
+}
+
+.favorites-page__header {
+  position: relative;
+  display: flex;
+  min-height: 95px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 46px;
+}
+
+.favorites-page__title {
+  width: 286px;
+  margin: 0;
+  padding-top: 6px;
+  font-family: var(--font-inter-family), sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.favorites-page__search {
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  display: flex;
+  width: min(782px, calc(100% - 310px));
+  height: 71px;
+  align-items: center;
+  gap: 16px;
+  box-sizing: border-box;
+  padding: 0 18px;
+  transform: translateX(-50%);
+  border-radius: 32px;
+  background: #f4f5f7;
+}
+
+.favorites-page__search > img {
+  flex: 0 0 24px;
+}
+
+.favorites-page__search input {
+  min-width: 0;
+  height: 100%;
+  flex: 1;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #000;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.favorites-page__search input::placeholder {
+  color: rgb(0 0 0 / 20%);
+  opacity: 1;
+}
+
+.favorites-page__search button {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+  padding: 0;
+}
+
+.favorites-page__search button img {
+  flex: 0 0 24px;
+}
+
+.favorites-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.favorites-page__grid .popular-places__card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1100px) {
+  .favorites-page__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .favorites-page {
+    width: 100%;
+    margin: 12px 0 36px;
+  }
+
+  .favorites-page__header {
+    min-height: auto;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .favorites-page__title {
+    width: auto;
+    padding: 0;
+    font-size: clamp(24px, 6vw, 32px);
+  }
+
+  .favorites-page__search {
+    position: static;
+    width: 100%;
+    height: 64px;
+    transform: none;
+    border-radius: 28px;
+  }
+
+  .favorites-page__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .favorites-page__grid .popular-places__card {
+    max-width: 512px;
+    justify-self: center;
+  }
+}
