@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import './navbar.css'
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const regions = [
     "Ташкент",
@@ -24,7 +25,8 @@ const regions = [
 
 const languages = ["Русский", "O‘zbek", "English"];
 
-export default function Navbar() {
+export default function Navbar({ onRegionChange }: { onRegionChange?: (region: string) => void } = {}) {
+    const pathname = usePathname();
     const [selectedRegion, setSelectedRegion] = useState(regions[0]);
     const [isRegionMenuOpen, setIsRegionMenuOpen] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
@@ -69,45 +71,34 @@ export default function Navbar() {
     }, [isRegionMenuOpen, isLanguageMenuOpen]);
 
     return (
-        <div className="navbar">
-            <span className="logo">BRON</span>
-            <ul className="navbar__menu">
-                <Link href="/" className="navbar__menu_link">
-                    <Image
-                        src={homeIcon}
-                        alt="homeIcon"
-                    />
-                    <li>Главная</li>
-                </Link>
-                <Link href="/map" className="navbar__menu_link">
-                    <Image
-                        src={mapIcon}
-                        alt="mapIcon"
-                    />
-                    <li>Карта</li>
-                </Link>
-                <Link href="/favorites" className="navbar__menu_link">
-                    <Image
-                        src={favoriteIcon}
-                        alt="favoriteIcon"
-                    />
-                    <li>Любимые</li>
-                </Link>
-                <Link href="/bookings" className="navbar__menu_link">
-                    <Image
-                        src={bookingIcon}
-                        alt="bookingIcon"
-                    />
-                    <li>Бронирование</li>
-                </Link>
-                <Link href="/chat" className="navbar__menu_link">
-                    <Image
-                        src={chatIcon}
-                        alt="chatIcon"
-                    />
-                    <li>Чат</li>
-                </Link>
-            </ul>
+        <header className="navbar">
+            <Link href="/" className="navbar__brand" aria-label="BRON — главная">
+                BRON
+            </Link>
+            <nav className="navbar__navigation" aria-label="Основная навигация">
+                <ul className="navbar__menu">
+                    {[
+                        { href: "/", label: "Главная", icon: homeIcon },
+                        { href: "/map", label: "Карта", icon: mapIcon },
+                        { href: "/favorites", label: "Любимые", icon: favoriteIcon },
+                        { href: "/bookings", label: "Бронирование", icon: bookingIcon },
+                        { href: "/chat", label: "Чат", icon: chatIcon },
+                    ].map(({ href, label, icon }) => (
+                        <li key={href}>
+                            <Link
+                                href={href}
+                                className="navbar__menu_link"
+                                aria-label={label}
+                                aria-current={pathname === href ? "page" : undefined}
+                                title={label}
+                            >
+                                <Image src={icon} alt="" aria-hidden="true" />
+                                <span className="navbar__menu_label">{label}</span>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
             <div className="navbar__location" ref={locationRef}>
                 <button
                     ref={locationButtonRef}
@@ -140,6 +131,7 @@ export default function Navbar() {
                                     aria-pressed={selectedRegion === region}
                                     onClick={() => {
                                         setSelectedRegion(region);
+                                        onRegionChange?.(region);
                                         setIsRegionMenuOpen(false);
                                     }}
                                 >
@@ -150,11 +142,8 @@ export default function Navbar() {
                     </ul>
                 )}
             </div>
-            <button className="navbar__theme">
-                <Image
-                    src={lightThemeIcon}
-                    alt="lightThemeIcon"
-                />
+            <button className="navbar__theme" type="button" aria-label="Тема оформления" title="Тема оформления">
+                <Image src={lightThemeIcon} alt="" aria-hidden="true" />
             </button>
             <div className="navbar__lang" ref={languageRef}>
                 <button
@@ -198,19 +187,13 @@ export default function Navbar() {
                     </ul>
                 )}
             </div>
-            <button className="navbar__notification">
-                <Image
-                    src={notificationIcon}
-                    alt="notificationIcon"
-                />
+            <button className="navbar__notification" type="button" aria-label="Уведомления" title="Уведомления">
+                <Image src={notificationIcon} alt="" aria-hidden="true" />
             </button>
-            <button className="navbar__profile">
-                <Image
-                    src={profileIcon}
-                    alt="profileIcon"
-                />
+            <button className="navbar__profile" type="button" aria-label="Профиль" title="Профиль">
+                <Image src={profileIcon} alt="" aria-hidden="true" />
             </button>
 
-        </div>
+        </header>
     )
 }
