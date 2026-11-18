@@ -2,6 +2,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+The `/map` page uses Mapbox. Set `NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN` in `.env.local` before running the app:
+
+```env
+NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=your_mapbox_public_token
+```
+
 First, run the development server:
 
 ```bash
